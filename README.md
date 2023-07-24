@@ -2,7 +2,7 @@
 ===============================================================
 
 
-![CI/CD Architecture](./Images/ci-cd%20architecture.PNG)
+![CI/CD Architecture](./images/ci-cd%20architecture.PNG)
 
 
 
@@ -141,7 +141,7 @@ To do this,
 
 9.  Create a new Pipeline
 
-![new pipeline](./Images/new%20pipeline.PNG)
+![new pipeline](./images/new%20pipeline.PNG)
 
 
 At this point you may not have a Jenkinsfile in the Ansible repository, so Blue Ocean will attempt to give you some guidance to create one. But we do not need that. We will rather create one ourselves. So, click on Administration to exit the Blue Ocean console.
@@ -150,7 +150,7 @@ At this point you may not have a Jenkinsfile in the Ansible repository, so Blue 
 
 Inside the Ansible project, create a new directory `deploy` and start a new file `Jenkinsfile` inside the directory.
 
-![Create jenkinsfile](./Images/create%20jenkinsfile.PNG)
+![Create jenkinsfile](./images/create%20jenkinsfile.PNG)
 
 
 Add the code snippet below to start building the `Jenkinsfile` gradually. This pipeline currently has just one stage called Build and the only thing we are doing is using the `shell script` module to echo `Building Stage`
@@ -192,7 +192,7 @@ To really appreciate and feel the difference of Cloud Blue UI, it is recommended
 
 3. Click on the play button against the branch
 
-![first build](./Images/echo%20building%20stage.PNG)
+![first build](./images/echo%20building%20stage.PNG)
 
 
 Let us see this in action.
@@ -233,7 +233,7 @@ Let us see this in action.
 
 6. In Blue Ocean, you can now see how the Jenkinsfile has caused a new step in the pipeline launch build for the new branch
 
-![feature-jenkinspipeline](./Images/feature-jenkinspipeline.PNG)
+![feature-jenkinspipeline](./images/feature-jenkinspipeline.PNG)
 
 
 
@@ -244,14 +244,14 @@ Now that you have a broad overview of a typical Jenkins pipeline. Let us get the
 
 For instructions on installations of the dependencies use the link below:
 
-[here](https://github.com/Tonybesto/ansible-config/blob/main/README.md)
+[here](https://github.com/yemveiser/PBL_Project_14/blob/main/playbooks/README.md)
 
 1. Installing Ansible on Jenkins
 
 
 2. Installing Ansible plugin in Jenkins UI
 
-![Ansible plugin](./Images/install%20ansible%20plugin.PNG)
+![Ansible plugin](./images/install%20ansible%20plugin.PNG)
 
 3. Creating Jenkinsfile from scratch. (Delete all you currently have in there and start all over to get Ansible to run successfully)
 
@@ -370,9 +370,8 @@ pipeline {
 
 3. In the Ansible execution section of the Jenkinsfile, remove the hardcoded inventory/dev and replace with ${inventory}
 
-![CI/CD for nginx](./Images/CI-CD%20for%20nginx%20and%20DB.PNG)
-
-![CI/CD for nginx](./Images/CI-CD%20for%20nginx%20and%20DB%20cont'd.PNG)
+![CI/CD for nginx](./images/CI-CD%20for%20nginx%20and%20DB.PNG)
+![CI/CD for nginx](./images/CI-CD%20for%20nginx%20and%20DB%20cont'd.PNG)
 
 ## **Note: Ensure that Ansible runs against the Dev environment successfully.**
 
@@ -496,16 +495,16 @@ pipeline {
 ```
 **When running we get an error. This is due to the fact that the Jenkins Server being the client server cant communicate with the DB server.**
 
-![error db connection](./Images/error%20due%20to%20DB%20connection.PNG)
+![error db connection](./images/error%20due%20to%20DB%20connection.PNG)
 
 3. We need to install mysql client on the Jenkins server and configure it.
 
-![edit the env](./Images/edit%20the%20env-sample.PNG)
+![edit the env](./images/edit%20the%20env-sample.PNG)
 
 The DB migration job passes after setting up the MYSQL client on the Jenkins server
 
-![plot build](./Images/plot%20build.PNG)
-![plot graph](./Images/phploc%20graph.PNG)
+![plot build](./images/plot%20build.PNG)
+![plot graph](./images/phploc%20graph.PNG)
 
 
 4. Bundle the application code into an artifact (archived package) and upload to Artifactory
@@ -546,7 +545,7 @@ stage ('Upload Artifact to Artifactory') {
         }
 ```
 
-![todo to artifactory](./Images/todo%20to%20artifactory.PNG)
+![todo to artifactory](./images/todo%20to%20artifactory.PNG)
 
 Deploy the application to the dev environment by launching Ansible pipeline. Ensure you update your inventory/dev with the Private IP of your TODO-server and your site.yml file is updated with todo play.
 
@@ -557,7 +556,7 @@ stage ('Deploy to Dev Environment') {
     }
   }
 ```
-![deployment to dev env](./Images/deployment%20to%20dev%20env.PNG)
+![deployment to dev env](./images/deployment%20to%20dev%20env.PNG)
 
 ![todo app](./Images/todo%20app.PNG)
 
@@ -576,20 +575,20 @@ On the Ansible config management pipeline, execute the ansible playbook script t
 
 When the pipeline is complete, access sonarqube from the browser using the <sonarqube_server_url>:9000/sonar
 
-![Sonarqube login](./Images/sonarqube%20login.PNG)
+![Sonarqube login](./images/sonarqube%20login.PNG)
 
 
 ## CONFIGURE SONARQUBE AND JENKINS FOR QUALITY GATE
 
-![installing Sonarqube](./Images/installing%20sonarqube.PNG)
+![installing Sonarqube](./images/install%20sonarqube%20scanner.PNG)
 
 * Install SonarQube Scanner plugin
 
-![install sonarqube scanner](./Images/install%20sonarqube%20scanner.PNG)
+![install sonarqube scanner](./images/install%20sonarqube%20scanner.PNG)
 
 * Navigate to configure system in Jenkins. Add SonarQube server: Manage Jenkins > Configure System
 
-![configure sonarqube on jenkins](./Images/configure%20sonarqube%20on%20jenkins.PNG)
+![configure sonarqube on jenkins](./images/configure%20sonarqube%20on%20jenkins.PNG)
 
 * To generate authentication token in SonarQube to to: User > My Account > Security > Generate Tokens
 
@@ -669,9 +668,9 @@ stage('SonarQube Quality Gate') {
 ```
 
 
-![no deploy to dev](./Images/no%20deploy%20to%20dev%20env.PNG)
+![no deploy to dev](./images/deployment%20to%20dev%20env.PNG)
 
-![sonarqube dashboard](./Images/sonarqube%20dashboard.PNG)
+![sonarqube dashboard](./images/sonarqube%20dashboard.PNG)
 
 
 
