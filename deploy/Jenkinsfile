@@ -20,7 +20,7 @@ pipeline {
 
       stage('Checkout SCM') {
          steps{
-            git branch: 'feature/jenkinspipeline-stages', url: 'https://github.com/yemveiser/PBL_Project_14.git'
+            git branch: 'main', url: 'https://github.com/yemveiser/PBL_Project_14.git'
          }
        }
 
